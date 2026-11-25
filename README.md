@@ -6,13 +6,23 @@ It runs entirely in the browser (React + TypeScript, no backend): the file is ne
 
 ## Quick start
 
-Requires **Node 22.12+** and **pnpm**.
+Requires **Node 22.12+**. The project uses **pnpm**, but npm works too.
 
 ```bash
 pnpm install
 pnpm data        # writes import-data.csv (200,000 rows, seed 42)
 pnpm dev         # http://localhost:5173
 ```
+
+No pnpm? Use npm instead:
+
+```bash
+npm install
+npm run data
+npm run dev
+```
+
+npm may install slightly newer package versions than pnpm, because the lockfile (`pnpm-lock.yaml`) is for pnpm. To get the exact same versions without installing pnpm, run `npx pnpm install` instead of `npm install`.
 
 Open the app, then drop `import-data.csv` onto the page or click to choose it.
 
