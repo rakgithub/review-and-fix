@@ -1,0 +1,196 @@
+.table {
+  --columns: 3.5rem minmax(110px, 1fr) minmax(90px, 1fr) minmax(100px, 1fr)
+    minmax(230px, 2fr) minmax(120px, 1fr) minmax(90px, 1fr) minmax(100px, 1fr)
+    minmax(120px, 1fr);
+  --row-height: 32px;
+  --min-width: 1016px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 240px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: var(--text-base);
+}
+
+/*
+ * Scrolled sideways by the rows below. Both reserve the same scrollbar
+ * space, so the header's columns line up with the rows'.
+ */
+.headerBox {
+  flex: none;
+  overflow: hidden;
+  scrollbar-gutter: stable;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.scroller {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  scrollbar-gutter: stable;
+}
+
+.header,
+.row {
+  display: grid;
+  grid-template-columns: var(--columns);
+  min-width: var(--min-width);
+  height: var(--row-height);
+  align-items: stretch;
+}
+
+.header {
+  /* Positioned, so column offsets are measured from the row's left edge. */
+  position: relative;
+  font-weight: 600;
+}
+
+.header > .rowNumber {
+  background: var(--surface);
+}
+
+.header > span {
+  padding: 0 8px;
+  line-height: var(--row-height);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header > span:not(:last-child),
+.row > :not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+.body {
+  position: relative;
+  min-width: var(--min-width);
+  /* Row lines under the rows: space the browser scrolls into before the rows
+     are drawn looks like empty rows filling in, not a blank flash. */
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 calc(var(--row-height) - 1px),
+    var(--border) calc(var(--row-height) - 1px) var(--row-height)
+  );
+}
+
+.row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* The line fits inside the row height. Rows are spaced exactly that far
+     apart, so otherwise the next row's filled cells (row numbers, highlighted
+     columns) would cover it. */
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--border);
+}
+
+.rowNumber {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.cell {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 0 8px;
+}
+
+.value {
+  overflow: hidden;
+  /* Keep leading and trailing spaces visible: " free" is a problem. */
+  white-space: pre;
+  text-overflow: ellipsis;
+}
+
+.highlighted {
+  background: var(--accent-faint);
+}
+
+.problem::before,
+.fixed::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger-strong);
+}
+
+/*
+ * Changed by the user and now without a problem. Green means "fixed", so a
+ * changed cell that still has a problem keeps the red dot instead. Smaller,
+ * not just a different colour: red and green look alike to colour-blind
+ * users, and "done" should stay quieter than "to do".
+ */
+.fixed::before {
+  width: 6px;
+  height: 6px;
+  margin: 0 1px;
+  background: var(--success);
+}
+
+.match {
+  border-radius: 2px;
+  background: var(--match);
+  color: inherit;
+}
+
+.empty {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.note {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.selected {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.editing {
+  padding: 0;
+  cursor: text;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0 8px;
+  border: none;
+  background: var(--bg);
+  font: inherit;
+  color: inherit;
+  white-space: pre;
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}

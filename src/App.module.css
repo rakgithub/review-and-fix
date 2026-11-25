@@ -1,0 +1,63 @@
+.start {
+  display: grid;
+  align-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.review {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 16px 24px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 16px 24px;
+}
+
+.review > aside {
+  min-height: 0;
+  overflow: auto;
+  /* Room for the scrollbar: overlay scrollbars (macOS) are drawn on top of
+     the content, so without this they cover the counts and list border. */
+  padding-right: 12px;
+}
+
+.withPanel {
+  grid-template-columns: 260px minmax(0, 1fr) 300px;
+}
+
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.secondary {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
+}

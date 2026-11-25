@@ -1,0 +1,166 @@
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.headline {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 400;
+}
+
+.headline strong {
+  font-weight: 600;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.types {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  /* Clips the rows to the rounded corners. Not "hidden": that would let the
+     sidebar's grid shrink the list and cut rows off instead of scrolling. */
+  overflow: clip;
+}
+
+.entry + .entry {
+  border-top: 1px solid var(--border);
+}
+
+.item,
+.applied {
+  display: grid;
+  gap: 2px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: var(--bg);
+  font: inherit;
+  line-height: 1.4;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: var(--surface);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.item[aria-pressed='true'] {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.item[aria-pressed='true'] .title {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.meta {
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}
+
+.summary {
+  display: grid;
+  gap: 8px;
+}
+
+.bar {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--success-strong);
+  transition: width 0.3s;
+}
+
+.applied {
+  cursor: default;
+}
+
+.undo {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.problemsSection {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.problemList {
+  min-height: 7rem;
+  overflow: auto;
+}
+
+.effort {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.oneClickSection {
+  flex: none;
+}
+
+.oneClickList {
+  border-color: var(--accent);
+}
+
+.fixAllRow {
+  padding: 0 12px 10px;
+  background: var(--bg);
+}
+
+.fixAll {
+  width: 100%;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}

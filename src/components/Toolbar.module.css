@@ -1,0 +1,54 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.search {
+  flex: 1 1 220px;
+  max-width: 420px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  font: inherit;
+}
+
+.showing {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.problemKey,
+.fixedKey {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Mirror the cell dots in Grid.module.css. Plain dots, not boxed, so they
+   don't read as checkboxes. */
+.problemKey::before,
+.fixedKey::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger-strong);
+}
+
+.fixedKey::before {
+  width: 6px;
+  height: 6px;
+  margin: 0 1px;
+  background: var(--success);
+}

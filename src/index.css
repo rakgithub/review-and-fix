@@ -1,0 +1,36 @@
+:root {
+  --text: #1f1d24;
+  --bg: #fff;
+  --text-muted: #66626e;
+  --surface: #f6f5f8;
+  --border: #e5e4e7;
+  --border-strong: #b8b5bf;
+  --accent: #3b5bdb;
+  --accent-soft: #eef2ff;
+  --accent-faint: #f5f7ff;
+  --danger: #e03131;
+  --danger-strong: #dc2626;
+  --danger-soft: #fff0f0;
+  --success: #16a34a;
+  --success-strong: #2b7a3b;
+  --match: #ffe066;
+
+  /* Type scale: the only font sizes in the app. */
+  --text-sm: 0.8125rem; /* 13px: hints, legend, labels */
+  --text-base: 0.875rem; /* 14px: body text, grid, buttons */
+  --text-md: 1rem; /* 16px: titles */
+  --text-lg: 1.25rem; /* 20px: file name, headline */
+
+  font:
+    16px/1.5 system-ui,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  font-size: var(--text-base);
+}

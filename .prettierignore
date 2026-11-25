@@ -1,0 +1,6 @@
+import-data.csv
+issues-report.json
+# Provided as-is; kept verbatim
+scripts/generate-data.mjs
+pnpm-lock.yaml
+*.md

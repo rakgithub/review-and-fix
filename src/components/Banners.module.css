@@ -1,0 +1,49 @@
+.banner {
+  display: grid;
+  gap: 10px;
+  padding: 8px 8px 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.title {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin: 0;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.note {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.done,
+.neutral {
+  padding-block: 10px;
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.text {
+  margin: 0;
+}
+
+.count {
+  font-weight: 400;
+  font-size: var(--text-base);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+}

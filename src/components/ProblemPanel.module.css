@@ -1,0 +1,170 @@
+.panel {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.panel p {
+  margin: 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.where {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font-size: var(--text-lg);
+  line-height: 1;
+  color: inherit;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--surface);
+}
+
+.value code,
+.good code,
+.suggestion code {
+  white-space: pre-wrap;
+  /* Breaks long emails, but wraps sentences like "Each customer has their
+     own email" between words. */
+  overflow-wrap: anywhere;
+}
+
+.value {
+  font-size: var(--text-md);
+}
+
+.original {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.original code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--text);
+}
+
+.revert {
+  padding: 4px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.revert:hover {
+  background: var(--surface);
+}
+
+.title {
+  margin: 4px 0 0;
+  font-size: var(--text-md);
+}
+
+.good,
+.suggestion {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.apply {
+  justify-self: start;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+}
+
+.ok {
+  color: var(--success-strong);
+  font-weight: 600;
+}
+
+.next {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.next:disabled {
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.next:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.result {
+  display: grid;
+  gap: 12px;
+}
+
+.hint {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.editRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit {
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.edit:hover {
+  background: var(--surface);
+}
